@@ -16,18 +16,27 @@ type TodoProps = {
 const Todo: React.FC<TodoProps> = ({ todo, removeTodo, completeTodo }) => {
   return (
     <div
-      className="todo bg-gray-100 p-4 rounded-md shadow-md flex justify-between items-center mb-2"
+      className="todo bg-gray-100 p-4 rounded-md shadow-md flex flex-col sm:flex-row justify-between items-center mb-2"
       style={{ color: todo.isCompleted ? "green" : "inherit" }}
     >
-      <div className="content">
-        <p className={`text-lg ${todo.isCompleted ? "green" : ""}`}>
-          {todo.text}
-        </p>
+      <div className="content w-full sm:w-auto flex-grow sm:flex-grow-0">
+        <div className="max-w-xs sm:max-w-full overflow-hidden overflow-ellipsis">
+          <p
+            className={`text-lg sm:text-base ${
+              todo.isCompleted ? "text-green-500" : ""
+            }`}
+          >
+            {todo.text}
+          </p>
+        </div>
+
         {todo.description && (
-          <p className="category text-sm italic">({todo.description})</p>
+          <p className="category text-sm italic lg:text-xs md:text-xs sm:text-xs">
+            ({todo.description})
+          </p>
         )}
       </div>
-      <div className="buttons">
+      <div className="buttons mt-2 sm:mt-0">
         <button
           onClick={() => completeTodo(todo.id)}
           className={`px-3 py-1 rounded-md bg-green-500 text-white mr-2 ${

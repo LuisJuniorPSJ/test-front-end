@@ -9,6 +9,12 @@ export default {
       maxHeight: {
         80: "80vh",
       },
+      truncate: {
+        lines: {
+          2: "2",
+          3: "3",
+        },
+      },
     },
   },
   plugins: [],

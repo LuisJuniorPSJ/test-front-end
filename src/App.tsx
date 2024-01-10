@@ -54,6 +54,8 @@ function App(): JSX.Element {
     setTodos(newTodos);
   };
 
+  /* funcões de login armazenamento em localStorage*/
+
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");
     if (loggedIn === "true") {
@@ -86,12 +88,13 @@ function App(): JSX.Element {
                   : !todo.isCompleted
               )
               .map((todo) => (
-                <Todo
-                  key={todo.id}
-                  todo={todo}
-                  removeTodo={removeTodo}
-                  completeTodo={completeTodo}
-                />
+                <div key={todo.id}>
+                  <Todo
+                    todo={todo}
+                    removeTodo={removeTodo}
+                    completeTodo={completeTodo}
+                  />
+                </div>
               ))}
           </div>
           <Form addTodo={addTodo} />

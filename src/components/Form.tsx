@@ -10,7 +10,7 @@ const Form: React.FC<FormProps> = ({ addTodo }) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!value || !description) return;
+    if (!value) return;
     addTodo(value, description);
     setValue("");
     setDescription("");
@@ -33,7 +33,7 @@ const Form: React.FC<FormProps> = ({ addTodo }) => {
           type="text"
           value={value}
           placeholder="Digite o título"
-          maxLength={15}
+          maxLength={30}
           required
           className="border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
         />
@@ -41,7 +41,7 @@ const Form: React.FC<FormProps> = ({ addTodo }) => {
           onChange={handleDescriptionChange}
           type="text"
           value={description}
-          maxLength={15}
+          maxLength={30}
           placeholder="Descrição (Opcional)"
           className="border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
         />
