@@ -13,7 +13,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const handleLogin = () => {
     if (email.trim() === "" || password.trim() === "") {
       alert("Por favor, preencha todos os campos.");
-    } else if (email === "teste@gmail.com" && password === "123456") {
+    } else if (email === "123456" && password === "123456") {
       onLogin();
     } else {
       alert("Email ou senha inválidos");
@@ -35,7 +35,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           <div className="flex items-center mb-2">
             <FaEnvelope className="mr-2" />
             <label htmlFor="email" className="mr-2">
-              Email :
+              Usuario :
             </label>
           </div>
           <input
